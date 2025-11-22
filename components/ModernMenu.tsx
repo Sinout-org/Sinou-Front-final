@@ -126,8 +126,13 @@ export function ModernMenu({
                             {social.label}
                         </Link>
                     ))}
-                    <div className="border-l border-border pl-4 ml-4">
+                    <div className="border-l border-border pl-4 ml-4 flex items-center gap-4">
                         <ThemeButtons />
+                        <Link href="/login">
+                            <Button variant="default" size="sm" className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0">
+                                Login
+                            </Button>
+                        </Link>
                     </div>
                 </div>
 
@@ -160,6 +165,14 @@ export function ModernMenu({
                             <div className="flex items-center gap-2">
                             </div>
                         </SheetHeader>
+
+                        <div className="px-5 mt-6">
+                            <Link href="/login" onClick={() => setOpen(false)}>
+                                <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 text-white border-0 h-12 text-lg font-semibold shadow-lg shadow-purple-500/20">
+                                    Login
+                                </Button>
+                            </Link>
+                        </div>
 
                         {/* Navegação principal do menu mobile */}
                         <nav className="flex flex-col space-y-3 mt-6 px-5">
