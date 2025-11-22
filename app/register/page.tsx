@@ -1,4 +1,4 @@
-import CardRegister from "@/components/auth/CardRegister";
+import CardRegister from "@/components/forms/auth/CardRegister";
 
 export default function RegisterPage() {
     return <CardRegister />;

@@ -2,17 +2,17 @@
 
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
-import { ModernMenu } from "@/components/ModernMenu";
+import { ModernMenu } from "@/components/layout/Header";
 import { ArrowRight } from 'lucide-react';
-import { HeroGeometricAnimation } from "@/components/hero-geometric-animation";
-import { ViteTimeline } from "@/components/vite-timeline";
-import { ViteProjectsGallery } from "@/components/vite-projects-gallery";
-import { VitePricing } from "@/components/vite-pricing";
-import { ViteDemoSection } from "@/components/vite-demo-section";
-import { ViteContactSection } from "@/components/vite-contact-section";
+import { HeroGeometricAnimation } from "@/components/sections/hero-geometric-animation";
+import { ViteTimeline } from "@/components/sections/vite-timeline";
+import { ViteProjectsGallery } from "@/components/sections/vite-projects-gallery";
+import { VitePricing } from "@/components/sections/vite-pricing";
+import { ViteDemoSection } from "@/components/sections/vite-demo-section";
+import { ViteContactSection } from "@/components/sections/vite-contact-section";
 
-const Particles = dynamic(() => import('../components/Particles'), { ssr: false });
-const Footer7 = dynamic(() => import("@/components/footer-7").then(mod => mod.Footer7));
+const Particles = dynamic(() => import('@/components/ui/Particles'), { ssr: false });
+const Footer7 = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer7));
 
 /**
  * Página Inicial (Home).

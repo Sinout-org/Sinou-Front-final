@@ -1,14 +1,14 @@
 "use client";
 
 import dynamic from 'next/dynamic';
-import { ModernMenu } from "@/components/ModernMenu";
-import { ViteHero } from "@/components/vite-hero";
-import { ViteFeatures } from "@/components/vite-features";
-import { FrameworkLogos } from "@/components/framework-logos";
-import { CodeComparison } from "@/components/code-comparison";
-import { TechTeam } from "@/components/tech-team";
+import { ModernMenu } from "@/components/layout/Header";
+import { ViteHero } from "@/components/sections/vite-hero";
+import { ViteFeatures } from "@/components/sections/vite-features";
+import { FrameworkLogos } from "@/components/sections/framework-logos";
+import { CodeComparison } from "@/components/sections/code-comparison";
+import { TechTeam } from "@/components/sections/tech-team";
 
-const Footer7 = dynamic(() => import("@/components/footer-7").then(mod => mod.Footer7));
+const Footer7 = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer7));
 
 /**
  * Página da Equipe.
