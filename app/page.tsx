@@ -250,8 +250,11 @@ export default function Home() {
         />
       </div>
       <ModernMenu items={menuItems} socialItems={socialItems} />
+      <div className="border-t border-muted-foreground/50 dark:border-t-muted"></div>
       <Timeline data={data} />
+      <div className="border-t border-muted-foreground/50 dark:border-t-muted"></div>
       <Gallery4 items={dataGallery} />
+      <div className="border-t border-muted-foreground/50 dark:border-t-muted"></div>
       <section id="pagamento">
         <Default />
         <MacbookScroll />
@@ -310,6 +313,7 @@ export default function Home() {
 
 
       </section>
+      <div className="border-t border-muted-foreground/50 dark:border-t-muted"></div>
       <Footer7 className="mt-auto" />
     </div>
   );

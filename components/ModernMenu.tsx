@@ -47,7 +47,7 @@ export function ModernMenu({
                         alt="Logo"
                         width={100}
                         height={40}
-                        className="h-10 w-auto"
+                        className="h-12 w-auto"
                     />
                 </Link>
 
@@ -100,7 +100,7 @@ export function ModernMenu({
                                     alt="Logo"
                                     width={100}
                                     height={40}
-                                    className="h-8 w-auto"
+                                    className="h-10 w-auto"
                                 />
                             </SheetTitle>
                         </SheetHeader>
