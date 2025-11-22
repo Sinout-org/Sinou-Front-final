@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import dynamic from 'next/dynamic';
-import { ToggleTheme } from "@/components/toggle-theme";
 import { ModernMenu } from "@/components/ModernMenu";
 import { useTheme } from "next-themes";
 
@@ -250,7 +249,6 @@ export default function Home() {
           disableRotation={false}
         />
       </div>
-      <ToggleTheme />
       <ModernMenu items={menuItems} socialItems={socialItems} />
       <Timeline data={data} />
       <Gallery4 items={dataGallery} />

@@ -12,6 +12,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from "@/components/ui/sheet";
+import { ToggleTheme } from "@/components/toggle-theme";
 
 interface MenuItem {
     label: string;
@@ -63,7 +64,7 @@ export function ModernMenu({
                     ))}
                 </nav>
 
-                {/* Social Links */}
+                {/* Social Links and Theme Toggle */}
                 <div className="hidden md:flex items-center space-x-4">
                     {socialItems.map((social) => (
                         <Link
@@ -76,6 +77,7 @@ export function ModernMenu({
                             {social.label}
                         </Link>
                     ))}
+                    <ToggleTheme />
                 </div>
 
                 {/* Mobile Menu Trigger */}
@@ -130,6 +132,9 @@ export function ModernMenu({
                                         {social.label}
                                     </Link>
                                 ))}
+                            </div>
+                            <div className="mt-6">
+                                <ToggleTheme />
                             </div>
                         </div>
                     </SheetContent>
