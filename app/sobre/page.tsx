@@ -20,6 +20,16 @@ const JourneyStep = ({
     color: string;
     delay?: number;
 }) => {
+    // Extract color classes for connection lines
+    const getConnectionColor = (colorClass: string) => {
+        if (colorClass.includes('red-500')) return 'from-red-500 to-pink-500';
+        if (colorClass.includes('purple-500')) return 'from-purple-500 to-indigo-500';
+        if (colorClass.includes('blue-500')) return 'from-blue-500 to-cyan-500';
+        if (colorClass.includes('emerald-500')) return 'from-emerald-500 to-teal-500';
+        if (colorClass.includes('orange-500')) return 'from-orange-500 to-red-500';
+        return 'from-purple-500 to-blue-500'; // fallback
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -30,24 +40,25 @@ const JourneyStep = ({
         >
             {/* Connection Line */}
             {step > 1 && (
-                <div className="absolute -left-8 top-12 w-16 h-0.5 bg-gradient-to-r from-purple-500 to-blue-500 hidden md:block" />
+                // connection line sits slightly to the right of the icon so the icon and "Passo" text don't overlap
+                <div className={`absolute left-28 top-8 w-0.5 h-16 bg-gradient-to-b ${getConnectionColor(color)} hidden md:block z-0`} />
             )}
 
-            <div className="flex items-start gap-6">
+            <div className="flex items-start gap-12">
                 {/* Step Number & Icon */}
-                <div className="flex-shrink-0">
-                    <div className={`w-16 h-16 rounded-2xl ${color} flex items-center justify-center shadow-lg relative`}>
+                <div className="flex-shrink-0 relative">
+                    <div className={`w-20 h-20 rounded-2xl ${color} flex items-center justify-center shadow-lg relative z-20`}>
                         <div className="absolute inset-0 rounded-2xl bg-white/20 animate-pulse" />
-                        <Icon className="w-8 h-8 text-white relative z-10" />
+                        <Icon className="w-10 h-10 text-white relative z-10" />
                     </div>
-                    <div className="text-center mt-2">
+                    <div className="text-center mt-3">
                         <span className="text-sm font-bold text-muted-foreground">Passo {step}</span>
                     </div>
                 </div>
 
                 {/* Content */}
-                <div className="flex-1 pb-12">
-                    <h3 className="text-2xl font-bold text-foreground mb-3">{title}</h3>
+                <div className="flex-1 pb-16 pt-4 pl-4">
+                    <h3 className="text-2xl font-bold text-foreground mb-4">{title}</h3>
                     <p className="text-muted-foreground text-lg leading-relaxed">{description}</p>
                 </div>
             </div>
@@ -140,10 +151,10 @@ export default function SobrePage() {
 
                     {/* Journey Steps */}
                     <div className="max-w-4xl mx-auto relative">
-                        {/* Central Timeline Line */}
-                        <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-pink-500 to-blue-500 hidden md:block" />
+                        {/* Central Timeline Line (moved to the right so icons & labels won't sit on top of it) */}
+                        <div className="absolute left-28 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gray-300 via-gray-400 to-gray-300 hidden md:block opacity-30 z-0" />
 
-                        <div className="space-y-8">
+                        <div className="space-y-16">
                             <JourneyStep
                                 step={1}
                                 title="O Nascimento da Ideia"
