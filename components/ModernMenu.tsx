@@ -126,6 +126,9 @@ export function ModernMenu({
                             {social.label}
                         </Link>
                     ))}
+                    <div className="border-l border-border pl-4 ml-4">
+                        <ThemeButtons />
+                    </div>
                 </div>
 
                 {/* Menu mobile com Sheet */}
