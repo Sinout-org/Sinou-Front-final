@@ -10,6 +10,7 @@ import { ViteProjectsGallery } from "@/components/sections/vite-projects-gallery
 import { VitePricing } from "@/components/sections/vite-pricing";
 import { ViteDemoSection } from "@/components/sections/vite-demo-section";
 import { ViteContactSection } from "@/components/sections/vite-contact-section";
+import FacialRecognitionAnimation from "@/components/sections/FacialRecognitionAnimation";
 
 const Particles = dynamic(() => import('@/components/ui/Particles'), { ssr: false });
 const Footer7 = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer7));
@@ -95,6 +96,12 @@ export default function Home() {
 
         {/* Separador visual */}
         <div className="h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent w-full" />
+
+        {/* Animação de Reconhecimento Facial */}
+        <FacialRecognitionAnimation />
+
+        {/* Separador visual */}
+        <div className="h-px bg-gradient-to-r from-transparent via-green-500/50 to-transparent w-full" />
 
         {/* Galeria de tecnologias */}
         <ViteProjectsGallery />

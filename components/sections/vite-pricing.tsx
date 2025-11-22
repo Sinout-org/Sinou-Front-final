@@ -1,8 +1,38 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, Zap, Star, Shield } from "lucide-react";
+import { Check } from "lucide-react";
 import Link from "next/link";
+
+// Ícones personalizados SVG
+const PersonalIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="8" r="3" stroke="currentColor" strokeWidth="2" fill="none" />
+        <path d="M12 14c-4 0-7 2-7 4v1h14v-1c0-2-3-4-7-4z" stroke="currentColor" strokeWidth="2" fill="none" />
+    </svg>
+);
+
+const FamilyIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" strokeWidth="2" fill="none" />
+        <circle cx="8" cy="8" r="2" stroke="currentColor" strokeWidth="2" fill="none" />
+        <circle cx="16" cy="8" r="2" stroke="currentColor" strokeWidth="2" fill="none" />
+        <path d="M8 12c-2 0-3.5 1-3.5 2.5v.5h7v-.5c0-1.5-1.5-2.5-3.5-2.5z" stroke="currentColor" strokeWidth="2" fill="none" />
+        <path d="M16 12c-2 0-3.5 1-3.5 2.5v.5h7v-.5c0-1.5-1.5-2.5-3.5-2.5z" stroke="currentColor" strokeWidth="2" fill="none" />
+    </svg>
+);
+
+const InstitutionalIcon = () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="3" y="3" width="18" height="14" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
+        <line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" strokeWidth="2" />
+        <line x1="9" y1="3" x2="9" y2="17" stroke="currentColor" strokeWidth="2" />
+        <line x1="15" y1="3" x2="15" y2="17" stroke="currentColor" strokeWidth="2" />
+        <rect x="5" y="11" width="2" height="2" stroke="currentColor" strokeWidth="2" fill="none" />
+        <rect x="11" y="11" width="2" height="2" stroke="currentColor" strokeWidth="2" fill="none" />
+        <rect x="17" y="11" width="2" height="2" stroke="currentColor" strokeWidth="2" fill="none" />
+    </svg>
+);
 
 const PricingCard = ({ plan, index }: { plan: any; index: number }) => {
     const isPopular = plan.popular;
@@ -25,7 +55,7 @@ const PricingCard = ({ plan, index }: { plan: any; index: number }) => {
             )}
 
             <div className="mb-8">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-gradient-to-br ${plan.iconColor} bg-opacity-10`}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 bg-muted/50 border border-border">
                     <plan.icon className="w-6 h-6 text-foreground" />
                 </div>
                 <h3 className="text-xl font-bold text-foreground mb-2">{plan.name}</h3>
@@ -49,7 +79,7 @@ const PricingCard = ({ plan, index }: { plan: any; index: number }) => {
 
             <Link href="/register" className="w-full">
                 <button className={`w-full py-3 rounded-xl font-bold transition-all duration-300 ${isPopular
-                    ? "bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-500 hover:to-pink-500 text-white shadow-lg shadow-purple-500/25"
+                    ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
                     : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border border-border"
                     }`}>
                     Começar Agora
@@ -65,8 +95,7 @@ export const VitePricing = () => {
             name: "Pessoal",
             price: "Gratuito",
             description: "Para uso individual. Recupere sua autonomia de comunicação básica.",
-            icon: Zap,
-            iconColor: "from-blue-500 to-cyan-500",
+            icon: PersonalIcon,
             features: [
                 "Tradução de expressões básicas",
                 "Teclado virtual ocular",
@@ -80,8 +109,7 @@ export const VitePricing = () => {
             name: "Família",
             price: "R$ 49",
             description: "Recursos avançados para o paciente e ferramentas de monitoramento para cuidadores.",
-            icon: Star,
-            iconColor: "from-purple-500 to-pink-500",
+            icon: FamilyIcon,
             features: [
                 "Tudo do plano Pessoal",
                 "App do Cuidador (até 3)",
@@ -96,8 +124,7 @@ export const VitePricing = () => {
             name: "Institucional",
             price: "Sob Consulta",
             description: "Para clínicas, hospitais e associações que atendem múltiplos pacientes.",
-            icon: Shield,
-            iconColor: "from-orange-500 to-red-500",
+            icon: InstitutionalIcon,
             features: [
                 "Múltiplos perfis de pacientes",
                 "Dashboard clínico analítico",

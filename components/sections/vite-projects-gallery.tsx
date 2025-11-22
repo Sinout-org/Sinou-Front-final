@@ -5,7 +5,16 @@ import Image from "next/image";
 import { ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
-const ProjectCard = ({ project, index }: { project: any; index: number }) => {
+const ProjectCard = ({ project, index }: {
+    project: {
+        title: string;
+        description: string;
+        image: string;
+        tag: string;
+        tagColor: string;
+        techs: string[];
+    }; index: number
+}) => {
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -68,7 +77,7 @@ export const ViteProjectsGallery = () => {
         {
             title: "Leitura Facial IA",
             description: "Algoritmo proprietário que mapeia 42 pontos faciais para detectar micro-movimentos e traduzi-los em comandos.",
-            image: "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2340&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3",
             tag: "Core Tech",
             tagColor: "from-blue-500 to-cyan-500",
             techs: ["Python", "TensorFlow", "OpenCV"]
@@ -76,7 +85,7 @@ export const ViteProjectsGallery = () => {
         {
             title: "App do Cuidador",
             description: "Interface móvel para familiares e cuidadores acompanharem o bem-estar e necessidades do paciente em tempo real.",
-            image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2340&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3",
             tag: "Mobile",
             tagColor: "from-purple-500 to-pink-500",
             techs: ["React Native", "Expo", "Real-time DB"]
@@ -84,7 +93,7 @@ export const ViteProjectsGallery = () => {
         {
             title: "Síntese de Voz Neural",
             description: "Transforma o texto gerado em fala natural e expressiva, permitindo que o usuário seja ouvido com clareza.",
-            image: "https://images.unsplash.com/photo-1478737270239-2f02b77ac6d5?q=80&w=2340&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3",
             tag: "Audio AI",
             tagColor: "from-emerald-500 to-teal-500",
             techs: ["TTS API", "Deep Learning", "Audio"]
@@ -92,7 +101,7 @@ export const ViteProjectsGallery = () => {
         {
             title: "Integração IoT",
             description: "Controle dispositivos inteligentes da casa (luzes, TV, ar-condicionado) apenas com expressões faciais.",
-            image: "https://images.unsplash.com/photo-1558002038-1091a166111c?q=80&w=2340&auto=format&fit=crop",
+            image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3",
             tag: "Smart Home",
             tagColor: "from-orange-500 to-red-500",
             techs: ["MQTT", "IoT", "Node.js"]
