@@ -5,6 +5,7 @@ import type { FormEvent, ChangeEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Eye, EyeOff, ArrowLeft, Loader2 } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
 
 interface LoginFormData {
     email: string;
@@ -17,6 +18,7 @@ interface FormErrors {
 }
 
 const CardLogin: React.FC = () => {
+    const { login } = useAuth();
     const [formData, setFormData] = useState<LoginFormData>({
         email: '',
         password: '',
@@ -50,7 +52,7 @@ const CardLogin: React.FC = () => {
         }
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         const newErrors: FormErrors = {};
@@ -79,11 +81,14 @@ const CardLogin: React.FC = () => {
 
         setIsLoading(true);
 
-        setTimeout(() => {
-            alert(`✅ Login bem-sucedido!\nBem-vindo(a), ${formData.email}`);
+        try {
+            await login(formData);
+        } catch (error) {
+            console.error(error);
+            setErrors({ email: 'Falha no login. Verifique suas credenciais.' });
+        } finally {
             setIsLoading(false);
-            router.push('/'); // Redirect to home after login
-        }, 1200);
+        }
     };
 
     return (

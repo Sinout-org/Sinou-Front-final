@@ -5,6 +5,7 @@ import type { FormEvent, ChangeEvent } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Eye, EyeOff, ArrowLeft, Loader2 } from 'lucide-react';
+import { useAuth } from '@/context/AuthContext';
 
 interface RegisterFormData {
     name: string;
@@ -21,6 +22,7 @@ interface FormErrors {
 }
 
 const CardRegister: React.FC = () => {
+    const { register } = useAuth();
     const [formData, setFormData] = useState<RegisterFormData>({
         name: '',
         email: '',
@@ -52,7 +54,7 @@ const CardRegister: React.FC = () => {
         }
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const newErrors: FormErrors = {};
 
@@ -74,12 +76,18 @@ const CardRegister: React.FC = () => {
         }
 
         setIsLoading(true);
-        setTimeout(() => {
-            alert(`✅ Cadastro realizado!\nBem-vindo(a), ${formData.name}`);
+        try {
+            await register({
+                name: formData.name,
+                email: formData.email,
+                password: formData.password,
+            });
+        } catch (error) {
+            console.error(error);
+            setErrors({ email: 'Falha no cadastro. Tente novamente.' });
+        } finally {
             setIsLoading(false);
-            setFormData({ name: '', email: '', password: '', confirmPassword: '' });
-            router.push('/login');
-        }, 1200);
+        }
     };
 
     return (
