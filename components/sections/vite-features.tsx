@@ -29,13 +29,13 @@ const features: Feature[] = [
     },
     {
         icon: <Users className="w-6 h-6 text-blue-500" />,
-        title: "Colaboração Multidisciplinar",
-        description: "Nossa equipe reúne especialistas em IA, engenharia de software e design para criar soluções completas e integradas."
+        title: "Tecnologia e Cuidado que Trabalham Juntos",
+        description: "Somos uma equipe multidisciplinar comprometida em desenvolver soluções que dão voz e independência a pessoas com limitações motoras."
     },
     {
         icon: <Zap className="w-6 h-6 text-yellow-500" />,
-        title: "Desenvolvimento Ágil",
-        description: "Utilizamos metodologias ágeis para iterar rapidamente, garantindo que cada versão seja melhor que a anterior."
+        title: "Em Constante Melhoria",
+        description: "Trabalhamos por etapas para melhorar o que já funciona. Trazemos novidades na comunicação sempre."
     },
     {
         icon: <Shield className="w-6 h-6 text-green-500" />,
@@ -44,13 +44,13 @@ const features: Feature[] = [
     },
     {
         icon: <Cog className="w-6 h-6 text-orange-500" />,
-        title: "Integração Tecnológica",
-        description: "Combinamos frontend moderno com backend robusto, criando ecossistemas tecnológicos coesos e escaláveis."
+        title: "Conexão que Faz a Diferença",
+        description: "Unimos o melhor da tecnologia pra entregar um sistema que realmente funciona bem no dia a dia."
     },
     {
         icon: <Heart className="w-6 h-6 text-pink-500" />,
         title: "Foco no Usuário",
-        description: "Cada decisão é guiada pela empatia, priorizando a acessibilidade e a experiência de pessoas com necessidades especiais."
+        description: "Cada decisão é guiada pela empatia, de forma que prioriza a acessibilidade e a experiência de pessoas com necessidades especiais."
     }
 ];
 

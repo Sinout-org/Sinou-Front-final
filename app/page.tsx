@@ -1,5 +1,6 @@
 "use client";
 
+import { VLibras } from '@/components/Vlibras';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { ModernMenu } from "@/components/layout/Header";
@@ -11,6 +12,8 @@ import { VitePricing } from "@/components/sections/vite-pricing";
 import { ViteDemoSection } from "@/components/sections/vite-demo-section";
 import { ViteContactSection } from "@/components/sections/vite-contact-section";
 import FacialRecognitionAnimation from "@/components/sections/FacialRecognitionAnimation";
+// import CustomCursor  from "@/components/ui/pointer";
+import Script from "next/script";
 
 const Particles = dynamic(() => import('@/components/ui/Particles'), { ssr: false });
 const Footer7 = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer7));
@@ -24,7 +27,7 @@ export default function Home() {
 
   // Configuração dos links sociais
   const socialItems = [
-    { label: "GitHub", href: "https://github.com" },
+    { label: "", href: "#" },
   ];
 
 
@@ -33,7 +36,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground overflow-x-hidden">
-
       {/* Menu de navegação */}
       <ModernMenu items={[]} socialItems={socialItems} />
 
@@ -64,7 +66,8 @@ export default function Home() {
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10 backdrop-blur-sm bg-muted/50 p-4 rounded-xl border border-border/50">
               Dê voz às suas expressões. Transforme micro-gestos em palavras com tecnologia acessível para comunicação sem limites.
             </p>
-
+            
+             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
               <Link href="/sobre">
                 <button className="px-8 py-4 rounded-full bg-gradient-to-r from-orange-500 to-purple-600 hover:from-orange-600 hover:to-purple-700 text-white font-bold text-lg shadow-[0_0_20px_rgba(249,115,22,0.5)] transition-all hover:scale-105 flex items-center gap-2">
@@ -113,6 +116,13 @@ export default function Home() {
 
       {/* Rodapé */}
       < Footer7 className="mt-auto border-t border-border bg-muted/30" />
+    {/* < CustomCursor /> */}
+    <Script
+      src="https://cdn.jsdelivr.net/npm/sienna-accessibility@latest/dist/sienna-accessibility.umd.js"
+      strategy="lazyOnload"
+      defer
+    />
+    
     </div >
   );
 }

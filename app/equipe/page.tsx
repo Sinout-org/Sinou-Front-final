@@ -10,6 +10,8 @@ import { ViteFeatures } from "@/components/sections/vite-features";
 import { FrameworkLogos } from "@/components/sections/framework-logos";
 import { CodeComparison } from "@/components/sections/code-comparison";
 import { TechTeam } from "@/components/sections/tech-team";
+import CustomCursor  from "@/components/ui/pointer";
+import { VLibras } from '@/components/Vlibras';
 // Removed local CTAs (buttons) per request — content simplified
 
 const Footer7 = dynamic(() => import("@/components/layout/Footer").then(mod => mod.Footer7));
@@ -62,13 +64,15 @@ const Footer7 = dynamic(() => import("@/components/layout/Footer").then(mod => m
 export default function TeamPage() {
     // Configuração dos links sociais para o menu
     const socialItems = [
-        { label: "GitHub", href: "https://github.com" },
+        { label: "", href: "#" },
     ];
 
 
     return (
         <div className="min-h-screen flex flex-col bg-background text-foreground">
-
+            <header>
+                <title>Sinout - Equipe</title>
+            </header>
             {/* Menu de navegação */}
             <ModernMenu items={[]} socialItems={socialItems} />
 
@@ -93,7 +97,7 @@ export default function TeamPage() {
                                 Conheça Nossa Equipe
                             </h2>
                             <p className="text-lg text-muted-foreground mb-6 max-w-xl mx-auto">
-                                Descubra os profissionais por trás da Sinout: suas funções, contribuições e a metodologia que usamos para entregar valor rápido.
+                                Descubra os profissionais por trás da Sinout: suas funções, contribuições e a metodologia que usamos para entregar valor.
                             </p>
 
                             {/* CTA buttons: link to docs page */}
@@ -101,7 +105,7 @@ export default function TeamPage() {
                                 <Button asChild>
                                     <Link href="/equipe/docs">Ver Documentação</Link>
                                 </Button>
-                                <Link href="/equipe/docs" className="text-sm text-muted-foreground hover:text-foreground underline">Ir para a docs →</Link>
+                                
                             </div>
                         </motion.div>
                     </div>
@@ -125,6 +129,8 @@ export default function TeamPage() {
 
             {/* Rodapé */}
             <Footer7 className="mt-auto border-t border-border bg-muted/30" />
+            <CustomCursor />
+            <VLibras />
         </div>
     );
 }
