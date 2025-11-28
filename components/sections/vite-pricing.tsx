@@ -19,6 +19,7 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import Link from "next/link";
+import { useAuth } from "@/context/AuthContext";
 
 /**
  * Ícone personalizado para o plano Pessoal
@@ -84,8 +85,18 @@ interface PricingPlan {
  * Renderiza um card individual de plano de preços com animações e estilos
  */
 const PricingCard = ({ plan, index }: { plan: PricingPlan; index: number }) => {
+    const { user } = useAuth();
     // Verifica se o plano é o mais popular para aplicar estilos especiais
     const isPopular = plan.popular;
+
+    let href = "";
+    if (plan.name === "Olhar Básico") {
+        href = user ? "/sistema" : "/login";
+    } else if (plan.name === "Olhar Corporativo") {
+        href = "/contato";
+    } else {
+        href = `/pagamento?plan=${encodeURIComponent(plan.name)}`;
+    }
 
     return (
         <motion.div
@@ -131,7 +142,7 @@ const PricingCard = ({ plan, index }: { plan: PricingPlan; index: number }) => {
             </div>
 
             {/* Botão de ação com link para registro */}
-            <Link href="/register" className="w-full">
+            <Link href={href} className="w-full">
                 <button className={`w-full py-3 rounded-xl font-bold transition-all duration-300 ${isPopular
                     ? "bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
                     : "bg-secondary hover:bg-secondary/80 text-secondary-foreground border border-border"
@@ -153,7 +164,7 @@ export const VitePricing = () => {
         {
             name: "Olhar Básico",
             price: "Gratuito",
-            description: "Para uso individual. Recupere sua autonomia de comunicação básica.",
+            description: "Para uso individual. Recupere sua comunicação básica.",
             icon: PersonalIcon,
             features: [
                 "Tradução de expressões básicas",
@@ -165,8 +176,8 @@ export const VitePricing = () => {
         },
         {
             name: "Olhar Completo",
-            price: "R$ 49",
-            description: "Recursos avançados para o paciente e ferramentas de monitoramento para cuidador.",
+            price: "R$ 99,90",
+            description: "Recursos avançados e ferramentas de monitoramento para cuidador.",
             icon: FamilyIcon,
             features: [
                 "Tudo do plano Olhar Básico",
