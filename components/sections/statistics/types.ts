@@ -15,7 +15,7 @@ export interface HistoryItem {
 }
 
 export interface Rule {
-    _id: string;
+    id: string;
     userId?: number;
     emotion: string;
     intensityLevel: string;

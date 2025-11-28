@@ -113,7 +113,7 @@ export function RecentActivityList({ history, rules }: RecentActivityListProps) 
 
                                 {/* Seção da regra acionada (se existir) */}
                                 {(() => {
-                                    const triggeredRule = rules.find(rule => rule._id === item.regra_acionada_id?.toString());
+                                    const triggeredRule = rules.find(rule => rule.id === item.regra_acionada_id?.toString());
                                     return triggeredRule ? (
                                         <div className="mt-2 pt-2 border-t border-border/50">
                                             <p className="text-xs text-muted-foreground">
