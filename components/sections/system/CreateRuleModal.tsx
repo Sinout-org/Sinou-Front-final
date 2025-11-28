@@ -96,7 +96,7 @@ export function CreateRuleModal({ isOpen, onClose, onRuleCreated }: CreateRuleMo
             priority: rule.priority,
             message: rule.message
         });
-        setEditingId(rule._id);
+        setEditingId(rule.id);
         setView("form");
     };
 
@@ -199,7 +199,7 @@ export function CreateRuleModal({ isOpen, onClose, onRuleCreated }: CreateRuleMo
                                                 </div>
                                             ) : (
                                                 rules.map((rule, index) => (
-                                                    <div key={`${rule._id}-${index}`} className="bg-muted/30 border border-border rounded-xl p-4 flex items-center justify-between group hover:border-purple-500/50 transition-colors">
+                                                    <div key={`${rule.id}-${index}`} className="bg-muted/30 border border-border rounded-xl p-4 flex items-center justify-between group hover:border-purple-500/50 transition-colors">
                                                         <div className="flex items-center gap-4">
                                                             <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg
                                                                 ${rule.emotion === 'happy' ? 'bg-green-500/10 text-green-500' :
@@ -224,7 +224,7 @@ export function CreateRuleModal({ isOpen, onClose, onRuleCreated }: CreateRuleMo
                                                             <Button variant="ghost" size="icon" onClick={() => handleEdit(rule)}>
                                                                 <Edit2 className="w-4 h-4 text-blue-500" />
                                                             </Button>
-                                                            <Button variant="ghost" size="icon" onClick={() => handleDelete(rule._id)}>
+                                                            <Button variant="ghost" size="icon" onClick={() => handleDelete(rule.id)}>
                                                                 <Trash2 className="w-4 h-4 text-red-500" />
                                                             </Button>
                                                         </div>
@@ -281,11 +281,11 @@ export function CreateRuleModal({ isOpen, onClose, onRuleCreated }: CreateRuleMo
 
                                             <div className="space-y-4">
                                                 <div className="space-y-2">
-                                                    <label className="text-sm font-medium text-foreground">Prioridade (1-10)</label>
+                                                    <label className="text-sm font-medium text-foreground">Prioridade (1-2)</label>
                                                     <input
                                                         type="number"
                                                         min="1"
-                                                        max="10"
+                                                        max="2"
                                                         className="w-full h-10 px-3 rounded-lg border border-border bg-background text-sm focus:ring-2 focus:ring-purple-500 outline-none"
                                                         value={formData.priority}
                                                         onChange={e => setFormData({ ...formData, priority: Number(e.target.value) })}

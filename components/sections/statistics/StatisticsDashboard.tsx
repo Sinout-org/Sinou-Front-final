@@ -170,7 +170,7 @@ export function StatisticsDashboard() {
             let rulesArray: Rule[] = [];
 
             const mapRuleItem = (item: ApiRuleItem): Rule => ({
-                _id: item.id,
+                id: item.id,
                 userId: item.userId,
                 emotion: item.emotion?.toLowerCase() || 'neutral',
                 intensityLevel: item.intensityLevel,
